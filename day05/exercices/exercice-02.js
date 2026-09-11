@@ -22,4 +22,4 @@ invites.push("Yassine");
 invites.push("Sara");
 invites.push("Amine");
 
-console.log(invites); // Affiche le tableau avec les trois noms ajoutés
+console.log(invites);  // Affiche le tableau avec les trois noms ajoutés.
