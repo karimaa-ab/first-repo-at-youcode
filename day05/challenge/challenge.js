@@ -20,3 +20,54 @@
 
 // Découpe d'abord le problème en petites étapes.
 // TODO: écris ta solution ici.
+
+let panier = [101, 105, 101, 102];
+
+function ajouterAuPanier(id) {
+
+    panier.push(id);
+
+}
+function retirerDuPanier(id) {
+
+    for (let i = 0; i < panier.length; i++) {
+
+        if (panier[i] === id) {
+
+            panier.splice(i, 1);
+            i--;
+        }
+    }
+
+}
+function afficherQuantites() {
+
+    let compteur = {};
+
+    for (let i = 0; i < panier.length; i++) {
+
+        let id = panier[i];
+
+        if (compteur[id] === undefined) {
+
+            compteur[id] = 1;
+
+        } else {
+
+            compteur[id]++;
+        }
+
+    }
+
+    for (let id in compteur) {
+        console.log("Article " + id + " : " + compteur[id] + " exemplaires");
+    }
+}
+
+ajouterAuPanier(103);
+retirerDuPanier(101);
+afficherQuantites();
+
+// Article 105 : 1 exemplaires
+// Article 102 : 1 exemplaires
+// Article 103 : 1 exemplaires
