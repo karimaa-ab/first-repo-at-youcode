@@ -186,7 +186,6 @@ Contient toute la logique de l'application :
 * Recherche, filtre et tri
 * Tableau de bord
 * Menu interactif
-* Tests
 
 ### `README.md`
 

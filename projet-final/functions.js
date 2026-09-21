@@ -1,5 +1,5 @@
 // ==================================================
-// Explication des fonctions 
+//     EXPLICATION DES FONCTIONS 
 // ==================================================
 
 // Vérifier si les données d'un résultat sont valides avant de les enregistrer.
@@ -195,12 +195,10 @@ function trierParProgression() {
         // puis utiliser cet ID pour calculer sa progression.
         // La fonction calculerProgression retourne un objet
         // contenant le pourcentage et le niveau.
-        let pourcentage1 =
-            calculerProgression(apprenant1.id).pourcentage;
+        let pourcentage1 = calculerProgression(apprenant1.id).pourcentage;
 
         // Faire la même chose pour le deuxième apprenant.
-        let pourcentage2 =
-            calculerProgression(apprenant2.id).pourcentage;
+        let pourcentage2 =calculerProgression(apprenant2.id).pourcentage;
 
         // Indiquer à sort() comment comparer les deux apprenants.
         // On compare leurs pourcentages pour placer
@@ -212,7 +210,6 @@ function trierParProgression() {
     return apprenants;
 }
 //==============================================================================================================
-
 function afficherTableauDeBord(){
 
     // PARTIE 1 : Compter le nombre total des apprenants
@@ -220,7 +217,6 @@ function afficherTableauDeBord(){
     let totalApprenants = apprenants.length;
 
     console.log("Total apprenants :", totalApprenants);
-
 
     // PARTIE 2 : Calculer la moyenne de progression
     // On commence par 0 car on va additionner les progressions
@@ -277,6 +273,19 @@ function afficherTableauDeBord(){
 
     // PARTIE 4 : Trier les apprenants par progression décroissante
     // La fonction trierParProgression() retourne la liste triée
+
+// Dans la quatrième partie, on trie les apprenants selon leur progression.
+
+// D’abord, on crée la variable `listeTriee` pour stocker la liste des apprenants après le tri, en utilisant la fonction `trierParProgression()`.
+
+//Ensuite, on utilise une boucle `for` pour parcourir chaque apprenant de `listeTriee`, un par un.
+
+//Pour chaque apprenant actuel, on utilise `calculerProgression()` pour récupérer sa progression.
+//  Cette fonction nous retourne un objet qui contient le `pourcentage` et le `niveau`.
+
+//Enfin, on utilise `console.log()` pour afficher le nom complet de l’apprenant actuel, son pourcentage de progression et son niveau.
+
+
     let listeTriee = trierParProgression();
 
     // Parcourir la liste triée
@@ -293,6 +302,30 @@ function afficherTableauDeBord(){
             progress.niveau
         );
     }
+    
+
+// Dans la partie 5, on cherche les jours manquants et les challenges non terminés.
+
+//D'abord, on utilise une boucle pour parcourir tous les apprenants. On crée la variable `apprenant` qui représente l'apprenant actuel.
+//  Par exemple, si `i = 0`, `apprenant` représente Sara.
+
+//Ensuite, on crée deux tableaux vides : `joursManquants` pour stocker les jours qui n'ont pas de résultat, 
+// et `challengesManquants` pour stocker les jours où le challenge n'est pas terminé.
+
+//Dans la partie 5-A, on vérifie les 7 jours de la SAS, de 1 à 7. Pour chaque jour, on commence avec `jourExiste = false`,
+// parce qu'on suppose au départ que le jour n'existe pas dans les résultats.
+
+//Ensuite, on parcourt les résultats de l'apprenant actuel. Pour chaque résultat, on récupère le numéro du jour avec `jourResultat`.
+
+//On compare ensuite `jour` avec `jourResultat`. Si les deux sont égaux, cela veut dire que le résultat de ce jour existe, donc on met `jourExiste = true`.
+
+//Après avoir vérifié les résultats, si `jourExiste` est toujours `false`, cela veut dire que ce jour n'a aucun résultat. 
+// On ajoute donc ce jour dans `joursManquants`.
+
+//Dans la partie 5-B, on parcourt les résultats de l'apprenant actuel et on vérifie `challengeTermine`. Si sa valeur est `false`,
+//  cela signifie que le challenge de ce jour n'est pas terminé. On ajoute alors le numéro du jour dans `challengesManquants`.
+
+//Enfin, avec `console.log()`, on affiche le nom de l'apprenant, ses jours manquants et les jours où les challenges ne sont pas terminés.
 
 
     // PARTIE 5 : Chercher les jours manquants et les challenges non terminés
@@ -349,7 +382,6 @@ function afficherTableauDeBord(){
             }
         }
 
-
         // Afficher le nom de l'apprenant,
         // ses jours manquants et ses challenges non terminés
         console.log(
@@ -363,18 +395,17 @@ function afficherTableauDeBord(){
 //===========================================================================================================================
 
 //const readline permet d’importer le module readline de Node.js, qui permet de récupérer les saisies de l’utilisateur depuis la console.
+// kay9ra dakchi li kaykteb utilisateur f console
 
 const readline = require("readline");
-
 
 // Créer une interface readline.
 // input : permet de lire ce que l'utilisateur écrit au clavier.
 // output : permet d'afficher les messages dans la console.
-const rl = readline.createInterface({
+const rl = readline.createInterface({ // howa interface li ghansta3mlo bach nwslo l utilisateur 
     input: process.stdin,
     output: process.stdout
 });
-
 
 // Fonction principale du menu.
 // Elle affiche les différentes fonctionnalités disponibles,
@@ -426,11 +457,7 @@ function afficherMenu() {
                 for (let i = 0; i < apprenants.length; i++) {
 
                     // Afficher l'ID, le nom et la ville de l'apprenant actuel.
-                    console.log(
-                        apprenants[i].id,
-                        apprenants[i].nomComplet,
-                        apprenants[i].ville
-                    );
+                    console.log ( apprenants[i].id, apprenants[i].nomComplet, apprenants[i].ville);
                 }
 
                 // Réafficher le menu après l'opération.
@@ -474,8 +501,7 @@ function afficherMenu() {
 
                             // Appeler la fonction ajouterApprenant()
                             // pour ajouter le nouvel apprenant au tableau.
-                            let message =
-                                ajouterApprenant(nouvelApprenant);
+                            let message = ajouterApprenant(nouvelApprenant);
 
                             // Afficher le message retourné par la fonction.
                             console.log(message);
@@ -500,27 +526,20 @@ function afficherMenu() {
 
                         // Convertir l'ID en nombre.
                         // Puis rechercher l'apprenant correspondant.
-                        let apprenant =
-                            rechercherApprenant(Number(id));
+                        let apprenant = rechercherApprenant(Number(id));
 
                         // Vérifier si un apprenant a été trouvé.
                         if (apprenant) {
 
                             // Afficher l'apprenant trouvé.
-                            console.log(
-                                "Apprenant trouvé :",
-                                apprenant
-                            );
+                            console.log( "Apprenant trouvé :", apprenant );
 
                         } else {
 
                             // Afficher un message si aucun apprenant
                             // ne correspond à l'ID recherché.
-                            console.log(
-                                "Apprenant introuvable"
-                            );
+                            console.log( "Apprenant introuvable" );
                         }
-
 
                         // Réafficher le menu après la recherche.
                         afficherMenu();
@@ -535,23 +554,17 @@ function afficherMenu() {
             case "5":
 
                 // Demander l'identifiant de l'apprenant.
-                rl.question(
-                    "Identifiant de l'apprenant : ",
-                    function (id) {
-
+                rl.question( "Identifiant de l'apprenant : ", function (id) {
 
                         // Rechercher l'apprenant à partir de son ID.
-                        let apprenant =
-                            rechercherApprenant(Number(id));
+                        let apprenant =  rechercherApprenant(Number(id));
 
 
                         // Vérifier si l'apprenant existe.
                         if (!apprenant) {
 
                             // Afficher un message si l'apprenant n'existe pas.
-                            console.log(
-                                "Apprenant introuvable"
-                            );
+                            console.log( "Apprenant introuvable" );
 
                             // Revenir au menu principal.
                             afficherMenu();
@@ -561,10 +574,7 @@ function afficherMenu() {
                         }
 
                         // Afficher le nom de l'apprenant trouvé.
-                        console.log(
-                            "Apprenant trouvé :",
-                            apprenant.nomComplet
-                        );
+                        console.log("Apprenant trouvé :", apprenant.nomComplet );
 
                         // Demander le numéro de la journée.
                         rl.question(
@@ -572,19 +582,13 @@ function afficherMenu() {
                             function (jour) {
 
                                 // Demander le nombre d'exercices terminés.
-                                rl.question(
-                                    "Exercices terminés : ",
-                                    function (exercicesTermines) {
+                                rl.question( "Exercices terminés : ", function (exercicesTermines) {
 
                                         // Demander le nombre total d'exercices.
-                                        rl.question(
-                                            "Total d'exercices proposés : ",
-                                            function (totalExercices) {
+                                        rl.question( "Total d'exercices proposés : ", function (totalExercices) {
 
                                                 // Demander si le challenge est terminé.
-                                                rl.question(
-                                                    "Challenge terminé (oui/non) : ",
-                                                    function (challenge) {
+                                                rl.question( "Challenge terminé (oui/non) : ",function (challenge) {
 
                                                         // Créer l'objet "resultat"
                                                         // avec toutes les informations de la journée.
@@ -595,52 +599,34 @@ function afficherMenu() {
 
                                                             // Convertir les exercices terminés
                                                             // en nombre.
-                                                            exercicesTermines:
-                                                                Number(exercicesTermines),
+                                                            exercicesTermines: Number(exercicesTermines),
 
                                                             // Convertir le total des exercices
                                                             // en nombre.
-                                                            totalExercices:
-                                                                Number(totalExercices),
+                                                            totalExercices: Number(totalExercices),
 
                                                             // Transformer la réponse "oui/non"
                                                             // en valeur booléenne true ou false.
-                                                            challengeTermine:
-                                                                challenge.toLowerCase() === "oui"
+                                                            challengeTermine: challenge.toLowerCase() === "oui"
                                                         };
 
                                                         // Appeler enregistrerResultat()
                                                         // pour ajouter ou modifier le résultat.
-                                                        let message =
-                                                            enregistrerResultat(
-                                                                Number(id),
-                                                                resultat
-                                                            );
+                                                        let message = enregistrerResultat(Number(id), resultat);
 
                                                         // Afficher le message retourné.
                                                         console.log(message);
 
                                                         // Vérifier si le résultat a bien été ajouté
                                                         // ou modifié avant de recalculer la progression.
-                                                        if (
-                                                            message === "resultat ajouté" ||
-                                                            message === "resultat modifié"
-                                                        ) {
+                                                        if ( message === "resultat ajouté" || message === "resultat modifié") {
 
                                                             // Calculer la nouvelle progression
                                                             // de l'apprenant.
-                                                            let progression =
-                                                                calculerProgression(
-                                                                    Number(id)
-                                                                );
+                                                            let progression = calculerProgression(Number(id));
 
                                                             // Afficher la progression obtenue.
-                                                            console.log(
-                                                                apprenant.nomComplet,
-                                                                ": progression",
-                                                                progression.pourcentage,
-                                                                "%"
-                                                            );
+                                                            console.log( apprenant.nomComplet, " progression :",progression.pourcentage,"%");
                                                         }
 
                                                         // Réafficher le menu après l'opération.
@@ -664,13 +650,10 @@ function afficherMenu() {
             case "6":
 
                 // Demander le nom à rechercher.
-                rl.question(
-                    "Nom à rechercher : ",
-                    function (nomRecherche) {
+                rl.question("Nom à rechercher : " ,function (nomRecherche) {
 
                         // Nettoyer et normaliser le nom recherché.
-                        let recherche =
-                            normaliserNom(nomRecherche);
+                        let recherche =normaliserNom(nomRecherche);
 
                         // Créer une variable pour savoir
                         // si un apprenant a été trouvé.
@@ -708,15 +691,11 @@ function afficherMenu() {
                         // Vérifier si aucun apprenant n'a été trouvé.
                         if (!trouve) {
 
-                            console.log(
-                                "Aucun apprenant trouvé"
-                            );
-                        }
-
+                            console.log(("Aucun apprenant trouvé"))
                         // Réafficher le menu après la recherche.
-                        afficherMenu();
-                    }
-                );
+                        }
+                    afficherMenu();
+                });
 
                 break;
             // CASE 7 : Filtrer les apprenants selon leur niveau.
@@ -725,36 +704,24 @@ function afficherMenu() {
             case "7":
 
                 // Demander le niveau recherché.
-                rl.question(
-                    "Niveau (solide / en progression / À renforcer) : ",
-                    function (niveau) {
+                rl.question("Niveau (solide / en progression / À renforcer) : ",function (niveau) {
 
                         // Appeler filtrerParNiveau()
                         // avec le niveau saisi par l'utilisateur.
-                        let resultat =
-                            filtrerParNiveau(niveau);
+                        let resultat =filtrerParNiveau(niveau);
 
                         // Vérifier si aucun apprenant ne correspond au niveau.
                         if (resultat.length === 0) {
 
-                            console.log(
-                                "Aucun apprenant trouvé"
-                            );
+                            console.log("Aucun apprenant trouvé");
 
                         } else {
 
-
                             // Parcourir la liste des apprenants filtrés.
-                            for (
-                                let i = 0;
-                                i < resultat.length;
-                                i++
-                            ) {
+                            for ( let i = 0;i < resultat.length;i++) {
 
                                 // Afficher le nom de chaque apprenant trouvé.
-                                console.log(
-                                    resultat[i].nomComplet
-                                );
+                                console.log(resultat[i].nomComplet);
                             }
                         }
 
@@ -770,34 +737,22 @@ function afficherMenu() {
             case "8":
 
                 // Appeler la fonction de tri.
-                let listeTriee =
-                    trierParProgression();
-
+                let listeTriee = trierParProgression();
 
                 // Parcourir la liste après le tri.
-                for (
-                    let i = 0;
-                    i < listeTriee.length;
-                    i++
-                ) {
+                for (let i = 0; i < listeTriee.length;  i++ ) {
                     // Calculer la progression de l'apprenant actuel.
-                    let progression =
-                        calculerProgression(
-                            listeTriee[i].id
-                        );
+                    let progression = calculerProgression(listeTriee[i].id);
 
                     // Afficher le nom et le pourcentage de progression.
-                    console.log(
-                        listeTriee[i].nomComplet,
-                        progression.pourcentage + "%"
-                    );
+                    console.log(listeTriee[i].nomComplet, progression.pourcentage + "%");
                 }
                 // Réafficher le menu après le tri.
                 afficherMenu();
 
                 break;
 
-            // CASE 9 : Trier les apprenants par ordre alphabétique.
+            // CASE 9 : Trier les apprenants par nom.
             // Cette option utilise sort() avec une fonction de comparaison
             // pour comparer les noms des apprenants.
             case "9":
@@ -806,24 +761,17 @@ function afficherMenu() {
                 // normaliserNom() permet de rendre la comparaison uniforme.
                 // localeCompare() permet de déterminer l'ordre alphabétique.
                 apprenants.sort(function (a, b) {
-
-                    return normaliserNom(a.nomComplet)
-                        .localeCompare(
-                            normaliserNom(b.nomComplet)
-                        );
+                   // localeCompare() permet de comparer deux chaînes de caractères selon l'ordre alphabétique. 
+                   // Elle retourne une valeur négative, zéro ou positive, 
+                   // et sort() utilise cette valeur pour savoir quel élément doit venir avant l'autre.
+                    return normaliserNom(a.nomComplet) .localeCompare( normaliserNom(b.nomComplet) );
                 });
 
                 // Parcourir le tableau après le tri.
-                for (
-                    let i = 0;
-                    i < apprenants.length;
-                    i++
-                ) {
+                for (let i = 0;i < apprenants.length;i++) {
 
                     // Afficher le nom de chaque apprenant.
-                    console.log(
-                        apprenants[i].nomComplet
-                    );
+                    console.log(apprenants[i].nomComplet);
                 }
 
                 // Réafficher le menu après le tri.
@@ -836,9 +784,7 @@ function afficherMenu() {
             // et arrête les interactions avec le terminal.
             case "0":
 
-                console.log(
-                    "Merci d'avoir utilisé SAS Progress Console."
-                );
+                console.log("Merci d'avoir utilisé SAS Progress Console.");
 
                 // Fermer l'interface readline.
                 rl.close();
@@ -849,9 +795,7 @@ function afficherMenu() {
             // afficher un message d'erreur puis réafficher le menu.
             default:
 
-                console.log(
-                    "Choix invalide. Veuillez choisir entre 0 et 9."
-                );
+                console.log("Choix invalide. Veuillez choisir entre 0 et 9." );
 
                 // Réafficher le menu pour permettre
                 // à l'utilisateur de faire un nouveau choix.

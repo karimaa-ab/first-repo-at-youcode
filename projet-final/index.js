@@ -468,7 +468,9 @@ function afficherMenu() {
                     if (!apprenant) {
 
                         console.log("Apprenant introuvable");
+
                         afficherMenu();
+
                         return;
                     }
 
@@ -480,46 +482,28 @@ function afficherMenu() {
 
                             rl.question("Total d'exercices proposés : ", function (totalExercices) {
 
-                                rl.question(
-                                    "Challenge terminé (oui/non) : ",
-                                    function (challenge) {
+                                rl.question(  "Challenge terminé (oui/non) : ",  function (challenge) {
 
                                         let resultat = {
 
                                             jour: Number(jour),
 
-                                            exercicesTermines:
-                                                Number(exercicesTermines),
+                                            exercicesTermines: Number(exercicesTermines),
 
-                                            totalExercices:
-                                                Number(totalExercices),
+                                            totalExercices: Number(totalExercices),
 
-                                            challengeTermine:
-                                                challenge.toLowerCase() === "oui"
+                                            challengeTermine:challenge.toLowerCase() === "oui"
                                         };
 
-                                        let message =
-                                            enregistrerResultat(
-                                                Number(id),
-                                                resultat
-                                            );
+                                        let message = enregistrerResultat( Number(id), resultat);
 
                                         console.log(message);
 
-                                        if (
-                                            message === "resultat ajouté" ||
-                                            message === "resultat modifié"
-                                        ) {
+                                        if ( message === "resultat ajouté" || message === "resultat modifié"    ) {
 
-                                            let progression =
-                                                calculerProgression(Number(id));
+                                            let progression = calculerProgression(Number(id));
 
-                                            console.log(
-                                                apprenant.nomComplet,
-                                                ": progression",
-                                                progression.pourcentage,
-                                                "%"
-                                            );
+                                            console.log( apprenant.nomComplet,  "progression :", progression.pourcentage, "%" );
                                         }
 
                                         afficherMenu();
@@ -529,25 +513,22 @@ function afficherMenu() {
                         });
                     });
                 });
-
                 break;
             case "6":
 
                 rl.question("Nom à rechercher : ", function (nomRecherche) {
 
-                    let recherche =
-                        normaliserNom(nomRecherche);
+                    let recherche = normaliserNom(nomRecherche);
 
                     let trouve = false;
 
                     for (let i = 0; i < apprenants.length; i++) {
 
-                        let nom =
-                            normaliserNom(apprenants[i].nomComplet);
+                        let nom = normaliserNom(apprenants[i].nomComplet);
 
                         if (nom.includes(recherche)) {
 
-                            console.log(
+                            console.log( 
                                 apprenants[i].id,
                                 apprenants[i].nomComplet,
                                 apprenants[i].ville
@@ -568,12 +549,9 @@ function afficherMenu() {
                 break;
             case "7":
 
-                rl.question(
-                    "Niveau (solide / en progression / À renforcer) : ",
-                    function (niveau) {
+                rl.question("Niveau (solide / en progression / À renforcer) : ",function (niveau) {
 
-                        let resultat =
-                            filtrerParNiveau(niveau);
+                        let resultat =  filtrerParNiveau(niveau);
 
                         if (resultat.length === 0) {
 
@@ -583,54 +561,42 @@ function afficherMenu() {
 
                             for (let i = 0; i < resultat.length; i++) {
 
-                                console.log(
-                                    resultat[i].nomComplet
-                                );
+                                console.log(resultat[i].nomComplet );
                             }
                         }
-
                         afficherMenu();
-                    }
-                );
+                    });
 
                 break;
             case "8":
 
-                let listeTriee =
-                    trierParProgression();
+                let listeTriee =  trierParProgression();
 
                 for (let i = 0; i < listeTriee.length; i++) {
 
-                    let progression =
-                        calculerProgression(listeTriee[i].id);
+                    let progression =  calculerProgression(listeTriee[i].id);
 
-                    console.log(
-                        listeTriee[i].nomComplet,
-                        progression.pourcentage + "%"
-                    );
+                         console.log( listeTriee[i].nomComplet, progression.pourcentage + "%" );
                 }
 
                 afficherMenu();
                 break;
+
             case "9":
 
                 apprenants.sort(function (a, b) {
 
-                    return normaliserNom(a.nomComplet)
-                        .localeCompare(
-                            normaliserNom(b.nomComplet)
-                        );
+                    return normaliserNom(a.nomComplet) .localeCompare( normaliserNom(b.nomComplet));
                 });
 
                 for (let i = 0; i < apprenants.length; i++) {
 
-                    console.log(
-                        apprenants[i].nomComplet
-                    );
+                    console.log( apprenants[i].nomComplet );
                 }
 
                 afficherMenu();
                 break;
+                
             case "0":
 
                 console.log("Merci d'avoir utilisé SAS Progress Console.");
